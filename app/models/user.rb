@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :tweets, dependent: :destroy
     before_save { email.downcase! } 
     # name は必ず存在し、長さが50字以内であること
     validates :name, presence: true, length: { maximum: 50 }
